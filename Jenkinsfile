@@ -24,7 +24,7 @@ pipeline {
                 echo " ============== start building image =================="
                 dir ('.') {
                 	sh """
-                    docker build -t runout/diploma-test-app:$latestTag . 
+                    docker build -t harlock12/netology-nginx:$latestTag . 
                     """
                 }
             }
