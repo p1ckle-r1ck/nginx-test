@@ -55,7 +55,7 @@ pipeline {
                     sh """
                         export KUBECONFIG=$KUBECONFIG
                         # Патчим манифест или используем переменные, если нужно
-                        kubectl apply -f k8s/deployment.yaml
+                        kubectl apply -f deployment.yml
                     """
                 }
             }
