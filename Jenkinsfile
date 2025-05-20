@@ -1,12 +1,6 @@
 pipeline {
     agent any
    
-    environment {
-        IMAGE_NAME = "harlock12/netology-nginx"
-        IMAGE_TAG = "${env.BUILD_NUMBER}"
-    }
-
-    
     stages {
 
         stage('Checkout') {
@@ -35,8 +29,11 @@ pipeline {
                 }
             }
         }
-        
-        
+        environment {
+            IMAGE_NAME = "harlock12/netology-nginx"
+
+        }
+
         stage('Push to Docker Registry') {
             steps {
                 withCredentials([usernamePassword(
@@ -46,7 +43,7 @@ pipeline {
                 )]) {
                     sh """
                         echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-                        docker push ${IMAGE_NAME}:${IMAGE_TAG}
+                        docker push ${IMAGE_NAME}:${latestTag}
                     """
                 }
             }
