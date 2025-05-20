@@ -36,6 +36,7 @@ pipeline {
             }
         }
         
+        
         stage('Push to Docker Registry') {
             steps {
                 withCredentials([usernamePassword(
