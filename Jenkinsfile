@@ -64,7 +64,7 @@ pipeline {
 
     post {
         success {
-            echo "✅ Успешно задеплоено: ${IMAGE_NAME}:${IMAGE_TAG}"
+            echo "✅ Успешно задеплоено: harlock12/netology:${latestTag}"
         }
         failure {
             echo "❌ Ошибка во время сборки или деплоя"
