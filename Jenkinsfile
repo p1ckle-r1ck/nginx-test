@@ -29,10 +29,10 @@ pipeline {
                 }
             }
         }
-        environment {
-            IMAGE_NAME = "harlock12/netology-nginx"
+        // environment {
+        //     IMAGE_NAME = "harlock12/netology-nginx"
 
-        }
+        // }
 
         stage('Push to Docker Registry') {
             steps {
@@ -43,7 +43,7 @@ pipeline {
                 )]) {
                     sh """
                         echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-                        docker push ${IMAGE_NAME}:${latestTag}
+                        docker push harlock12/netology-nginx:${latestTag}
                     """
                 }
             }
