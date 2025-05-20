@@ -7,6 +7,7 @@ pipeline {
         IMAGE_TAG = "${env.BUILD_NUMBER}"
     }
 
+    
     stages {
         stage('Checkout') {
             steps {
