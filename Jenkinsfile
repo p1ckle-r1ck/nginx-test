@@ -1,7 +1,6 @@
 pipeline {
     agent any
-
-    
+   
     environment {
         IMAGE_NAME = "harlock12/netology-nginx"
         IMAGE_TAG = "${env.BUILD_NUMBER}"
