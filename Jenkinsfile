@@ -9,9 +9,19 @@ pipeline {
 
     
     stages {
+
         stage('Checkout') {
             steps {
                 checkout scm
+            }
+        }
+
+        stage("get tag") {
+            steps {
+                script {
+                    latestTag = sh(returnStdout: true, script: "git describe --tags").trim()
+                }
+                echo "latestTag=$latestTag"
             }
         }
 
@@ -22,7 +32,7 @@ pipeline {
                 }
             }
         }
-
+        
         stage('Push to Docker Registry') {
             steps {
                 withCredentials([usernamePassword(
