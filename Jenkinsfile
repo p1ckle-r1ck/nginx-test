@@ -27,8 +27,11 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                script {
-                    docker build -t harlock12/netology-nginx:${latestTag} .
+                echo " ============== start building image =================="
+                dir ('.') {
+                	sh """
+                    docker build -t runout/diploma-test-app:$latestTag . 
+                    """
                 }
             }
         }
